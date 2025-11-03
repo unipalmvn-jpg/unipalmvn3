@@ -1,17 +1,10 @@
-const next = require("@next/eslint-plugin-next");
+const { FlatCompat } = require("@eslint/eslintrc");
+const path = require("path");
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-const config = [
-  {
-    files: ["**/*.{js,jsx,mjs,ts,tsx}"],
-    plugins: {
-      "@next/next": next,
-    },
-    rules: {
-      ...next.configs.recommended.rules,
-      ...next.configs["core-web-vitals"].rules,
-    },
-  },
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+});
+
+module.exports = [
+    ...compat.extends("next/core-web-vitals"),
 ];
-
-module.exports = config;
