@@ -38,7 +38,7 @@ export default function ProductDetailPage() {
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLElement>(null);
   const product = products.find((p) => p.id === params.id);
 
   useEffect(() => {
