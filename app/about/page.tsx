@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Target, Heart, Leaf, Users, Award, TrendingUp } from "lucide-react";
 
