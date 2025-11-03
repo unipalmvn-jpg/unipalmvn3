@@ -1,7 +1,7 @@
 "use client";
 
 import createContextHook from "@/lib/create-context-hook";
-import { useState, useMemo, RefObject } from "react";
+import { useState, useMemo, RefObject, useCallback } from "react";
 
 interface AnimationState {
   isAnimating: boolean;
@@ -19,7 +19,7 @@ export const [AnimationProvider, useAnimation] = createContextHook(() => {
   });
   const [cartIconRect, setCartIconRect] = useState<DOMRect | null>(null);
 
-  const flyToCart = (image: string, startElementRef: RefObject<HTMLElement>) => {
+  const flyToCart = useCallback(<T extends HTMLElement>(image: string, startElementRef: RefObject<T>) => {
     if (startElementRef.current && cartIconRect) {
       setAnimationState({
         isAnimating: true,
@@ -37,7 +37,7 @@ export const [AnimationProvider, useAnimation] = createContextHook(() => {
         });
       }, 800);
     }
-  };
+  }, [cartIconRect]);
 
   return useMemo(
     () => ({
@@ -45,6 +45,6 @@ export const [AnimationProvider, useAnimation] = createContextHook(() => {
       flyToCart,
       setCartIconRect,
     }),
-    [animationState]
+    [animationState, flyToCart]
   );
 });
