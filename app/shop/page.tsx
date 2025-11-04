@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Search, Star, SlidersHorizontal, ArrowLeft, Menu, GitCompare, X, Check } from "lucide-react";
 import { products, categories } from "@/data/products";
 import { useComparison } from "@/contexts/ComparisonContext";
 
-export default function ShopPage() {
+function ShopContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
@@ -320,5 +320,20 @@ export default function ShopPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-backgroundGray flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-base font-semibold text-textGray">Đang tải...</p>
+        </div>
+      </div>
+    }>
+      <ShopContent />
+    </Suspense>
   );
 }
