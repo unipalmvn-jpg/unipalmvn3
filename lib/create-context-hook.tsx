@@ -1,13 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode, ReactElement } from "react";
 
 export default function createContextHook<T>(
   useValue: () => T
-): [({ children }: { children: ReactNode }) => JSX.Element, () => T] {
+): [({ children }: { children: ReactNode }) => ReactElement, () => T] {
   const Context = createContext<T | undefined>(undefined);
 
-  function Provider({ children }: { children: ReactNode }) {
+  function Provider({ children }: { children: ReactNode }): ReactElement {
     const value = useValue();
     return <Context.Provider value={value}>{children}</Context.Provider>;
   }
