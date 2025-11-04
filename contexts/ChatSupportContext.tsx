@@ -1,6 +1,6 @@
 "use client";
 
-import createContextHook from "@/lib/create-context-hook.tsx";
+import createContextHook from "@/lib/create-context-hook";
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { products } from "@/data/products";
 

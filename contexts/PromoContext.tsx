@@ -1,6 +1,6 @@
 "use client";
 
-import createContextHook from "@/lib/create-context-hook.tsx";
+import createContextHook from "@/lib/create-context-hook";
 import { useState, useCallback, useMemo } from "react";
 
 export interface Coupon {

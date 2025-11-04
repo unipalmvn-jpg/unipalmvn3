@@ -1,6 +1,6 @@
 "use client";
 
-import createContextHook from "@/lib/create-context-hook.tsx";
+import createContextHook from "@/lib/create-context-hook";
 import { useState, useCallback, useEffect, useMemo } from "react";
 import { Address } from "@/types";
 import AsyncStorage from "@/lib/async-storage";
