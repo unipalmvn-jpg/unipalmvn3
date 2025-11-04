@@ -45,7 +45,7 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-backgroundGray">
+      <div className="min-h-screen bg-backgroundGray pb-20">
         <div className="bg-white px-5 py-5">
           <h1 className="text-3xl font-black tracking-tight">Giỏ Hàng</h1>
         </div>
@@ -61,7 +61,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-backgroundGray pb-32">
+    <div className="min-h-screen bg-backgroundGray pb-48">
       <div className="bg-white px-5 py-5 flex justify-between items-center">
         <h1 className="text-3xl font-black tracking-tight">Giỏ Hàng</h1>
         <p className="text-sm font-semibold text-textGray">{items.length} sản phẩm</p>
@@ -167,7 +167,7 @@ export default function CartPage() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-border p-4 shadow-2xl z-30">
+      <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-border p-4 shadow-2xl z-30 safe-area-bottom">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <div>
             <p className="text-sm text-textGray">Tổng Tiền</p>
