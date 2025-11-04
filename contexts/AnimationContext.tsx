@@ -19,7 +19,7 @@ export const [AnimationProvider, useAnimation] = createContextHook(() => {
   });
   const [cartIconRect, setCartIconRect] = useState<DOMRect | null>(null);
 
-  const flyToCart = useCallback((image: string, startElementRef: RefObject<HTMLElement | null>) => {
+  const flyToCart = useCallback(<T extends HTMLElement>(image: string, startElementRef: RefObject<T | null>) => {
     if (startElementRef.current && cartIconRect) {
       setAnimationState({
         isAnimating: true,
